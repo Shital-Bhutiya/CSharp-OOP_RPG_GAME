@@ -20,7 +20,8 @@ namespace OOP_RPG
             this.AddMonster("Maniko", 3, 6, 18);
             this.AddMonster("Vania", 8, 8, 15);
             this.AddMonster("Bella", 8, 9, 21);
-            //this.Monsters.Add(new Monster());
+            // ====== You can even add Blank Monster =====
+            this.Monsters.Add(new Monster());
 
             var lastMonster = this.Monsters.Last();
             var secondMonster = this.Monsters[1];
@@ -28,7 +29,6 @@ namespace OOP_RPG
             var gt11SMonster = (from m in Monsters where m.Strength >= 11 select m).FirstOrDefault();
             var randomMonster = this.Monsters[new Random().Next(this.Monsters.Count - 1)];
             this.monster = randomMonster;
-            // ====== You can even add Blank Monster =====
         }
 
         public void AddMonster(string name, int strength, int defense, int hp)
