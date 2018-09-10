@@ -20,17 +20,15 @@ namespace OOP_RPG
             this.AddMonster("Maniko", 3, 6, 18);
             this.AddMonster("Vania", 8, 8, 15);
             this.AddMonster("Bella", 8, 9, 21);
+            // ====== You can even add Blank Monster =====
+            this.Monsters.Add(new Monster());
         }
 
         public void AddMonster(string name, int strength, int defense, int hp)
         {
-            var monster = new Monster();
-            monster.Name = name;
-            monster.Strength = strength;
-            monster.Defense = defense;
-            monster.OriginalHP = hp;
-            monster.CurrentHP = hp;
-            this.Monsters.Add(monster);
+           // Calling the constructor in the Monster class and adding monster to our monster list
+           var monster = new Monster(name, strength, defense, hp);
+           this.Monsters.Add(monster);
         }
 
         public void Start()
@@ -40,7 +38,6 @@ namespace OOP_RPG
             var lt20HPMonster = (from m in Monsters where m.CurrentHP < 20 select m).First();
             var lt11SMonster = (from m in Monsters where m.Strength < 11 select m).First();
             var randomMonster = this.Monsters[new Random().Next(this.Monsters.Count - 1)];
-
             var enemy = randomMonster;
             Console.WriteLine("You've encountered a " + enemy.Name + "! " + enemy.Strength + " Strength/" + enemy.Defense + " Defense/" +
             enemy.CurrentHP + " HP. What will you do?");
