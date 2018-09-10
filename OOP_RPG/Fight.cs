@@ -38,7 +38,7 @@ namespace OOP_RPG
             var lastMonster = this.Monsters.Last();
             var secondMonster = this.Monsters[1];
             var lt20HPMonster = (from m in Monsters where m.CurrentHP < 20 select m).First();
-            var lt11SMonster = (from m in Monsters where m.Strength < 11 select m).First();
+            var gt11SMonster = (from m in Monsters where m.Strength >= 11 select m).First();
             var randomMonster = this.Monsters[new Random().Next(this.Monsters.Count - 1)];
 
             var enemy = randomMonster;
