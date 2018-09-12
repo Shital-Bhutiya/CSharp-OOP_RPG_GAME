@@ -10,6 +10,7 @@ namespace OOP_RPG
         public int Defense { get; set; }
         public int OriginalHP { get; set; }
         public int CurrentHP { get; set; }
+        public int Gold { get; set; }
         // constructor with default perameters
         public Monster(string name = "Bhuro", int strength = 10, int defence = 20, int hp = 10)
         {
@@ -18,6 +19,7 @@ namespace OOP_RPG
             this.Defense = defence;
             this.OriginalHP = hp;
             this.CurrentHP = hp;
+            this.Gold = new Random().Next(0, 100);
         }
     }
 }
