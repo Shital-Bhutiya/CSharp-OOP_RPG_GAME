@@ -11,6 +11,7 @@ namespace OOP_RPG
         public int OriginalHP { get; set; }
         public int CurrentHP { get; set; }
         public int Gold { get; set; }
+
         // constructor with default perameters
         public Monster(string name = "Bhuro", int strength = 10, int defence = 20, int hp = 10)
         {
