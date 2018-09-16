@@ -118,7 +118,6 @@ namespace OOP_RPG
             {
                 this.MonsterTurn();
             }
-
         }
 
         public void MonsterTurn()
@@ -149,9 +148,7 @@ namespace OOP_RPG
         public void Win()
         {
             hero.Gold += monster.Gold;
-
             Console.WriteLine(monster.Gold == 0 ? "Oops Your Bad Luck" : "Congratulation! You won " + monster.Gold + " Gold");
-
             Console.WriteLine(monster.Name + " has been defeated! You win the battle!");
             game.Main();
         }

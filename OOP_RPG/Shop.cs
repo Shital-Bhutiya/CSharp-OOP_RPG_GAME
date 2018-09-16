@@ -52,7 +52,7 @@ namespace OOP_RPG
 
         public void ShowInventory()
         {
-            Console.WriteLine("What you want?");
+            Console.WriteLine("What you want to buy?");
             Console.WriteLine("1.Weapons");
             Console.WriteLine("2.Armors");
             Console.WriteLine("3.Potions");
@@ -180,13 +180,12 @@ namespace OOP_RPG
                     }
                     else
                     {
-
                         this.Menu();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("You don't have any weapons");
+                    Console.WriteLine("You don't have any weapons to sell");
                     this.Menu();
                 }
 
@@ -212,7 +211,7 @@ namespace OOP_RPG
                 }
                 else
                 {
-                    Console.WriteLine("You don't have any Armors");
+                    Console.WriteLine("You don't have any Armors to sell");
                     this.Menu();
                 }
             }
@@ -237,7 +236,7 @@ namespace OOP_RPG
                 }
                 else
                 {
-                    Console.WriteLine("You don't have any Potion");
+                    Console.WriteLine("You don't have any Potion to sell");
                     this.Menu();
                 }
             }
@@ -252,23 +251,22 @@ namespace OOP_RPG
             if (bag == "weapons")
             {
                 this.hero.Gold += this.hero.WeaponsBag[inputNumber].ResellValue;
-
                 this.hero.WeaponsBag.RemoveAt(inputNumber);
-                Console.WriteLine("You successfully sold the item");
+                Console.WriteLine("You successfully sold the weapon");
                 this.Menu();
             }
             else if (bag == "armor")
             {
                 this.hero.Gold += this.hero.ArmorsBag[inputNumber].ResellValue;
                 this.hero.ArmorsBag.RemoveAt(inputNumber);
-                Console.WriteLine("You successfully sold the item");
+                Console.WriteLine("You successfully sold the Armor");
                 this.Menu();
             }
             else
             {
                 this.hero.Gold += this.hero.PotionBag[inputNumber].ResellValue;
                 this.hero.PotionBag.RemoveAt(inputNumber);
-                Console.WriteLine("You successfully sold the item");
+                Console.WriteLine("You successfully sold the Potion");
                 this.Menu();
             }
         }

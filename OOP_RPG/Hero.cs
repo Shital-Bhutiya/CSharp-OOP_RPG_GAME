@@ -94,7 +94,6 @@ namespace OOP_RPG
                         {
                             this.EquipWeapon(inputNumber);
                             this.game.Main();
-
                         }
                         else
                         {
@@ -120,7 +119,6 @@ namespace OOP_RPG
                         {
                             this.EquipArmor(inputNumber);
                             this.game.Main();
-
                         }
                         else
                         {
@@ -164,8 +162,6 @@ namespace OOP_RPG
                     this.game.Main();
                     break;
             }
-
-
         }
 
         public void EquipWeapon(int WeaponIndex)
