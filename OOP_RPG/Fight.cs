@@ -13,13 +13,14 @@ namespace OOP_RPG
         public Fight(Hero hero, Game game)
         {
             this.Monsters = new List<Monster>();
+
             this.hero = hero;
             this.game = game;
-            this.AddMonster("Squid", 9, 8, 20);
-            this.AddMonster("Aliga", 4, 7, 19);
-            this.AddMonster("Maniko", 3, 6, 18);
-            this.AddMonster("Vania", 8, 8, 15);
-            this.AddMonster("Bella", 8, 9, 21);
+            this.AddMonster("Squid", 9, 8, 20, 20);
+            this.AddMonster("Aliga", 4, 7, 19, 15);
+            this.AddMonster("Maniko", 3, 6, 18, 30);
+            this.AddMonster("Vania", 8, 8, 15, 10);
+            this.AddMonster("Bella", 8, 9, 21, 35);
             // ====== You can even add Blank Monster =====
             this.Monsters.Add(new Monster());
 
@@ -31,10 +32,10 @@ namespace OOP_RPG
             this.monster = randomMonster;
         }
 
-        public void AddMonster(string name, int strength, int defense, int hp)
+        public void AddMonster(string name, int strength, int defense, int hp, int speed)
         {
             // Calling the constructor in the Monster class and adding monster to our monster list
-            var monster = new Monster(name, strength, defense, hp);
+            var monster = new Monster(name, strength, defense, hp, speed);
             this.Monsters.Add(monster);
         }
 
@@ -43,14 +44,52 @@ namespace OOP_RPG
             Console.WriteLine("You've encountered a " + this.monster.Name + "! " + this.monster.Strength + " Strength/" + this.monster.Defense + " Defense/" +
             this.monster.CurrentHP + " HP. What will you do?");
             Console.WriteLine("1. Fight");
+            Console.WriteLine("2. Run Away");
+            Console.WriteLine("3. Regain HP");
             var input = Console.ReadLine();
             if (input == "1")
             {
                 this.HeroTurn();
             }
+            else if (input == "2")
+            {
+                this.RunAway();
+            }
+            else if (input == "3")
+            {
+                this.RegainHP();
+            }
             else
             {
                 this.game.Main();
+            }
+        }
+
+        private void RegainHP()
+        {
+            if (this.hero.PotionBag.Count != 0)
+            {
+                this.hero.CurrentHP += this.hero.PotionBag[0].HP;
+                Console.WriteLine("You got " + this.hero.PotionBag[0].HP + " HP");
+                this.hero.PotionBag.RemoveAt(0);
+            }
+            else
+            {
+                Console.WriteLine("You don't have any portion to re gain HP");
+            }
+            this.Start();
+        }
+
+        public void RunAway()
+        {
+            if (this.hero.Speed > this.monster.Speed)
+            {
+                this.Win();
+            }
+            else
+            {
+                Console.WriteLine("You Don't Have Enough speed to run away");
+                this.Start();
             }
         }
 

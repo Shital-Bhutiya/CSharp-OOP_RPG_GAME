@@ -13,7 +13,7 @@ namespace OOP_RPG
         public int OriginalValue { get; set; }
         public int ResellValue { get; set; }
 
-        public Potion(int hp, string name, int originalvalue, int resellvalue)
+        public Potion(string name, int originalvalue, int resellvalue, int hp)
         {
             this.HP = hp;
             this.Name = name;
